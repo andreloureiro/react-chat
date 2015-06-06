@@ -1,5 +1,5 @@
 var React = require('react');
-var ChatActions = require('../../actions/ChatActions.jsx');
+var ChatActions = require('../../actions/ChatActions');
 
 var ChatMessageInput = React.createClass({
 
