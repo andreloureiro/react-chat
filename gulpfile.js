@@ -1,6 +1,9 @@
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
+	babelify = require('babelify'),
 	browserify = require('browserify'),
+	jshint = require('gulp-jshint'),
+	jsxhint = require('jsxhint'),
 	reactify = require('reactify'),
 	source = require('vinyl-source-stream');
 
@@ -16,6 +19,7 @@ gulp.task('scripts', function () {
 		.transform(reactify)
 		.bundle()
 		.pipe(source('ChatApp.js'))
+		.pipe(jshint())
 		.pipe(gulp.dest('./js'))
 		.pipe(connect.reload());
 });
