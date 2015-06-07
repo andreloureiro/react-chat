@@ -10,10 +10,13 @@ var CHANGE_EVENT = 'change';
 var _messages = [];
 
 function addMessage (message) {
-	var _message = TodoStore.getUserInfo();
-	_message['text'] = message.text;
-	
-	console.log(_message);
+	var _user = TodoStore.getUserInfo();
+	_message = {
+		_id: new Date(),
+		text: message.text,
+		fullName: _user.fullName,
+		avatar: _user.avatar
+	};
 	_messages.push(_message);
 }
 
