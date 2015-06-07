@@ -2,6 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var Constants = require('../constants/Constants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
+var TodoStore = require('./UserStore');
 
 var CHANGE_EVENT = 'change';
 
@@ -9,8 +10,11 @@ var CHANGE_EVENT = 'change';
 var _messages = [];
 
 function addMessage (message) {
-	console.log(message);
-	_messages.push(message);
+	var _message = TodoStore.getUserInfo();
+	_message['text'] = message.text;
+	
+	console.log(_message);
+	_messages.push(_message);
 }
 
 

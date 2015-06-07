@@ -26,7 +26,7 @@ var ChatList = React.createClass({
 
 		var messages = this.state.messages.map(function (message) {
 			return (
-				<ChatMessage userMessage={ message.text } />
+				<ChatMessage userName={ message.fullName } userAvatar={ message.avatar } userMessage={ message.text } />
 			)
 		});
 		

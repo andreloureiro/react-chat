@@ -1,6 +1,7 @@
 var React = require('react');
 var ChatList = require('./components/chat/ChatList.jsx');
 var ChatMessageInput = require('./components/chat/ChatMessageInput.jsx');
+var UserOauth = require('./components/oauth/UserOauth.jsx');
 
 var ChatApp = React.createClass({
 
@@ -10,6 +11,7 @@ var ChatApp = React.createClass({
 			<div className="container">
 				<ChatList />
 				<ChatMessageInput />
+				<UserOauth />
 			</div>
 		)
 
