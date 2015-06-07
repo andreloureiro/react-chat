@@ -14,15 +14,15 @@ var ChatMessage = React.createClass({
 		
 		return (
 			<div className="row">
-				<div class="col s12 m8 offset-m2 l6 offset-l3">
-			        <div class="card-panel grey lighten-5 z-depth-1">
-			          <div class="row valign-wrapper">
-			            <div class="col s2">
-			              <img src={ this.props.userAvatar } alt="" class="circle responsive-img" />
+				<div className="col s12 m8 offset-m2 l6 offset-l3">
+			        <div className="card-panel grey lighten-5 z-depth-1">
+			          <div className="row valign-wrapper">
+			            <div className="col s2">
+			              <img src={ this.props.userAvatar } alt="" className="circle responsive-img" />
 			            </div>
-			            <div class="col s10">
+			            <div className="col s10">
 			              <small>{ this.props.userName.toUpperCase() } diz:<br /></small>
-			              <span class="black-text">
+			              <span className="black-text">
 			                { this.props.userMessage }
 			              </span>
 			            </div>
