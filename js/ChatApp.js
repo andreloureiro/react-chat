@@ -74,7 +74,7 @@ var ChatList = React.createClass({displayName: "ChatList",
 
 		var messages = this.state.messages.map(function (message) {
 			return (
-				React.createElement(ChatMessage, {userName:  message.fullName, userAvatar:  message.avatar, userMessage:  message.text})
+				React.createElement(ChatMessage, {key:  message._id, userName:  message.fullName, userAvatar:  message.avatar, userMessage:  message.text})
 			)
 		});
 		
@@ -111,15 +111,15 @@ var ChatMessage = React.createClass({displayName: "ChatMessage",
 		
 		return (
 			React.createElement("div", {className: "row"}, 
-				React.createElement("div", {class: "col s12 m8 offset-m2 l6 offset-l3"}, 
-			        React.createElement("div", {class: "card-panel grey lighten-5 z-depth-1"}, 
-			          React.createElement("div", {class: "row valign-wrapper"}, 
-			            React.createElement("div", {class: "col s2"}, 
-			              React.createElement("img", {src:  this.props.userAvatar, alt: "", class: "circle responsive-img"})
+				React.createElement("div", {className: "col s12 m8 offset-m2 l6 offset-l3"}, 
+			        React.createElement("div", {className: "card-panel grey lighten-5 z-depth-1"}, 
+			          React.createElement("div", {className: "row valign-wrapper"}, 
+			            React.createElement("div", {className: "col s2"}, 
+			              React.createElement("img", {src:  this.props.userAvatar, alt: "", className: "circle responsive-img"})
 			            ), 
-			            React.createElement("div", {class: "col s10"}, 
+			            React.createElement("div", {className: "col s10"}, 
 			              React.createElement("small", null,  this.props.userName.toUpperCase(), " diz:", React.createElement("br", null)), 
-			              React.createElement("span", {class: "black-text"}, 
+			              React.createElement("span", {className: "black-text"}, 
 			                 this.props.userMessage
 			              )
 			            )
@@ -254,10 +254,13 @@ var CHANGE_EVENT = 'change';
 var _messages = [];
 
 function addMessage (message) {
-	var _message = TodoStore.getUserInfo();
-	_message['text'] = message.text;
-	
-	console.log(_message);
+	var _user = TodoStore.getUserInfo();
+	_message = {
+		_id: new Date(),
+		text: message.text,
+		fullName: _user.fullName,
+		avatar: _user.avatar
+	};
 	_messages.push(_message);
 }
 
