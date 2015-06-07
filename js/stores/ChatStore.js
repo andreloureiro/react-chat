@@ -9,36 +9,40 @@ var CHANGE_EVENT = 'change';
 var _messages = [];
 
 function addMessage (message) {
+	console.log(message);
 	_messages.push(message);
 }
 
 
-var ChatStore = assign({}, EventEmitter, {
+var ChatStore = assign({}, EventEmitter.prototype	, {
 
 	getMessages: function () {
 		return _messages
-	}
+	},
 
 	emitChange: function () {
 		this.emit(CHANGE_EVENT);
 	},
 
-	addListener: function (callback) {
+	addChangeListener: function (callback) {
 		this.on(CHANGE_EVENT, callback);
 	},
 
-	removeListener: function (callback) {
+	removeChangeListener: function (callback) {
 		this.removeListener(CHANGE_EVENT, callback);
 	}
 
 });
 
 
-AppDispatcher.register(function (action) {
+AppDispatcher.register(function (payload) {
 	
+	var action = payload.action;
+
 	switch(action.actionType) {
 
-		case Constants.ADD_MESSAGE:
+		case Constants.SEND_MESSAGE:
+			console.log(action);
 			addMessage(action.data);
 			ChatStore.emitChange();
 			break;
@@ -47,6 +51,5 @@ AppDispatcher.register(function (action) {
 	}
 
 });
-
 
 module.exports = ChatStore;

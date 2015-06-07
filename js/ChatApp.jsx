@@ -1,4 +1,5 @@
 var React = require('react');
+var ChatList = require('./components/chat/ChatList.jsx');
 var ChatMessageInput = require('./components/chat/ChatMessageInput.jsx');
 
 var ChatApp = React.createClass({
@@ -6,8 +7,8 @@ var ChatApp = React.createClass({
 	render: function () {
 		
 		return (
-			<div>
-				Chat App
+			<div className="container">
+				<ChatList />
 				<ChatMessageInput />
 			</div>
 		)

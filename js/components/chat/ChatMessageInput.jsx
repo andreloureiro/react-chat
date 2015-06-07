@@ -3,8 +3,6 @@ var ChatActions = require('../../actions/ChatActions');
 
 var ChatMessageInput = React.createClass({
 
-
-
 	render: function () {
 		
 		return (
@@ -18,8 +16,11 @@ var ChatMessageInput = React.createClass({
 	},
 
 	_onKeyDown: function (e) {
-		if (e.target.keyCode == 13) {
-			ChatActions.addMessage(e.target.value);
+		if (e.keyCode == 13 && e.target.value != '') {
+			ChatActions.sendMessage({
+				text: e.target.value
+			});
+			e.target.value = '';
 		};
 	}
 

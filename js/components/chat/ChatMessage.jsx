@@ -13,12 +13,16 @@ var ChatMessage = React.createClass({
 	render: function () {
 		
 		return (
-			<div  className="row">
-				<div className="col s3">
-					<ChatMessageUserAvatar avatarImage={ this.props.userAvatar } />
-				</div>
-				<div className="col s9">
-					<p>{ this.props.userMessage }</p>
+			<div className="row">
+				<div className="col s8 card-panel grey lighten-3">
+					<div  className="row">
+						<div className="col s2">
+							<ChatMessageUserAvatar avatarImage={ this.props.userAvatar } />
+						</div>
+						<div className="col s10">
+							<p>{ this.props.userMessage }</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		)

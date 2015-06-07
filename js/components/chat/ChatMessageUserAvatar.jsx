@@ -6,7 +6,7 @@ var ChatMessageUserAvatar = React.createClass({
 		return {
 			avatarImage: ''
 		}
-	}
+	},
 
 	render: function () {
 		return (
